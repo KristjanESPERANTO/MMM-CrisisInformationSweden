@@ -33,7 +33,7 @@ module.exports = NodeHelper.create({
         var self = this;
         console.log((new Date(Date.now())).toLocaleTimeString() + ': Getting feed for module ' + this.name);
         var opt = {
-	     uri: 'https://api.krisinformation.se/v3/news',
+	     uri: 'https://api.krisinformation.se/v3/news/?includeTest=0&allCounties=True',
 //            uri: 'http://api.krisinformation.se/v1/capmessage?format=json',
             //uri: 'http://api.krisinformation.se/v1/feed',
             qs : {
@@ -43,9 +43,9 @@ module.exports = NodeHelper.create({
         console.log('Calling '+opt.uri);
         request(opt)
             .then(function(resp) {
+                console.log(resp);
                 var feeds = self.filterFeed(resp);
-                console.log((new Date(Date.now())).toLocaleTimeString() 
-                    + ": "+ this.name +" - Sending NEW_FEED count: "+feeds.length + " Org: " + resp.length);
+                console.log( self.name +" - Sending NEW_FEED count: "+feeds.length + " Org: " + resp.length);
                 self.sendSocketNotification('NEW_FEED', feeds); // Send feed to module
             })
             .catch(function(err) {
@@ -59,17 +59,19 @@ module.exports = NodeHelper.create({
         if (this.config.areas === undefined || this.config.areas.length < 1) return resp;
         var feeds = [];
         for (var ix = 0; ix < resp.length; ix++) {
+//            console.log("MSB: " + ix);
             var inc = false;
             var feed = resp[ix];
-            var areas = feed.InfoData[0].Area;
-            //console.log("Looking at "+ feed.Identifier);
+            var areas = feed.Area;
+//            console.log("Looking at "+ feed.Identifier);
             if (areas === undefined || areas === null) inc = true; // Always include iof there's no area defined
             else {
                 for (var ia = 0; ia < areas.length; ia++) {
+//		    console.log("filter: " + JSON.stringify(areas[ia]));
                     for (var iad = 0; iad < this.config.areas.length; iad++) {
-                        if (areas[ia].AreaDesc == this.config.areas[iad]) inc = true;
+                        if (areas[ia].Type == "County" && areas[ia].Description == this.config.areas[iad]) inc = true;
                     }
-                    if (this.config.alwaysNational && areas[ia].AreaDesc == "Sverige") inc = true;
+                    if (this.config.alwaysNational && areas[ia].Type == "Country" && areas[ia].Description == "Sverige") inc = true;
                 }
             }
             if (inc) feeds.push(feed);

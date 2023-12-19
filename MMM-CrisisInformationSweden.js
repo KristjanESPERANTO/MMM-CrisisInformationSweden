@@ -99,14 +99,14 @@ Module.register("MMM-CrisisInformationSweden", {
                 tdiv.appendChild(spant);
 
                 var spanh = document.createElement("div");
-                spanh.innerHTML = msg.InfoData[0].Headline;
+                spanh.innerHTML = msg.Headline;
                 spanh.className = 'small align-left';
                 tdiv.appendChild(spanh);
                 wrapper.appendChild(tdiv);
 
                 if (this.config.showDescription) {
                     var ddiv = document.createElement("div");
-                    ddiv.innerHTML = msg.InfoData[0].Description;
+                    ddiv.innerHTML = msg.Preamble;
                     ddiv.className = 'dimmed xsmall align-left';
                     wrapper.appendChild(ddiv);
                 }
@@ -117,11 +117,11 @@ Module.register("MMM-CrisisInformationSweden", {
                 bdiv.style.borderTopWidth = '1px';
                 bdiv.style.borderTopColor = '#666';
                 bdiv.style.borderTopStyle = 'dotted';
-                if (msg.InfoData[0].Area !== undefined && msg.InfoData[0].Area != null && msg.InfoData[0].Area.length > 0) {
+                if (msg.Area !== undefined && msg.Area != null && msg.Area.length > 0) {
                     var adiv = document.createElement("span");
                     adiv.innerHTML = '<b>Area(s):</b> ';
-                    for (var ia = 0 ; ia < msg.InfoData[0].Area.length; ia++) {
-                        adiv.innerHTML = adiv.innerHTML + (ia > 0 ? ', ' : '') + msg.InfoData[0].Area[ia].AreaDesc;
+                    for (var ia = 0 ; ia < msg.Area.length; ia++) {
+                        adiv.innerHTML = adiv.innerHTML + (ia > 0 ? ', ' : '') + msg.Area[ia].Description;
                     }
                     adiv.className = 'align-left';
                     adiv.style.cssFloat = 'left';
@@ -134,9 +134,9 @@ Module.register("MMM-CrisisInformationSweden", {
                     //sdiv.style.cssFloat = 'right';
                     bdiv.appendChild(sdiv);
                 }
-                if (msg.InfoData[0].SenderName !== undefined && msg.InfoData[0].SenderName != '') {
+                if (msg.SenderName !== undefined && msg.SenderName != '') {
                     var sdiv = document.createElement("span");
-                    sdiv.innerHTML = '<b>From:</b> ' + msg.InfoData[0].SenderName;
+                    sdiv.innerHTML = '<b>From:</b> ' + msg.SenderName;
                     sdiv.className = 'align-right';
                     sdiv.style.cssFloat = 'right';
                     bdiv.appendChild(sdiv);

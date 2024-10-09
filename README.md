@@ -1,5 +1,6 @@
 # MMM-CrisisInformationSweden
-[Magic Mirror](https://magicmirror.builders/) Module - News feed from the Swedish Government Crisis Information 
+
+[MagicMirror²](https://magicmirror.builders/) Module - News feed from the Swedish Government Crisis Information 
 [Krisinformation.se](https://www.krisinformation.se/engelska).
 
 The current feed in json format can be obtained here [http://api.krisinformation.se/v1/capmessage?format=json](http://api.krisinformation.se/v1/capmessage?format=json)

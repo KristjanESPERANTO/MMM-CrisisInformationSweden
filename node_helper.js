@@ -1,14 +1,13 @@
 /* node_helper.js
  *
- * Magic Mirror module - News feed from the Swedish Government Crisis Information (Krisinformation.se). 
+ * MagicMirror² module - News feed from the Swedish Government Crisis Information (Krisinformation.se). 
  * 
- * Magic Mirror
  * Module: MMM-CrisisInformationSweden
  * 
- * Magic Mirror By Michael Teeuw http://michaelteeuw.nl
+ * MagicMirror² by Michael Teeuw http://michaelteeuw.nl
  * MIT Licensed.
  * 
- * Module MMM-CrisisInformationSweden By Anders Boghammar
+ * Module MMM-CrisisInformationSweden by Anders Boghammar
  */
 const NodeHelper = require("node_helper");
 const request = require("request-promise");

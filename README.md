@@ -7,13 +7,11 @@ The current feed in json format can be obtained here <https://api.krisinformatio
 ## Install
 
 1. Clone repository into `../modules/` inside your MagicMirror directory.
-2. Run `npm install` inside `../modules/MMM-CrisisInformationSweden/` directory.
-3. Add the module to the MagicMirror config.
+2. Add the module to the MagicMirror config.
 
 ## Update
 
-1. Run `git pull` inside `../modules/MMM-CrisisInformationSweden/` directory.
-2. Run `npm install` inside `../modules/MMM-CrisisInformationSweden/` directory.
+Run `git pull` inside `../modules/MMM-CrisisInformationSweden/` directory.
 
 ## Configuration
 

@@ -1,7 +1,7 @@
 {
   "name": "mmm-crisisinformationsweden",
   "version": "2.0.0",
-  "description": "News feed from the Swedish Government Crisis Information",
+  "description": "News feed from the Swedish Government Crisis Information.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,9 +23,5 @@
   "bugs": {
     "url": "https://github.com/Pejjo/MMM-CrisisInformationSweden/issues"
   },
-  "homepage": "https://github.com/Pejjo/MMM-CrisisInformationSweden#readme",
-  "dependencies": {
-    "request": "^2.81.0",
-    "request-promise": "^4.2.1"
-  }
+  "homepage": "https://github.com/Pejjo/MMM-CrisisInformationSweden#readme"
 }
